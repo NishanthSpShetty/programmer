@@ -44,8 +44,12 @@
    "\t(= num2 0)\n num1\n"
    ;;generate all possible combination of number in range (start end)
    (apply str
-          (for [x (range 1 (inc start))  y (range 1 (inc end))]
+          (for [x (range start (inc end))  y (range start (inc end))]
             (str "\t(and (= num1 " x ") (= num2 " y ")) " (+ x y) "\n")))
+  ;  (apply str
+  ;         (for [x (range 1 (inc end))  y (range 1 (inc start))]
+  ;           (if (= x y) ""
+  ;               (str "\t(and (= num1 " x ") (= num2 " y ")) " (+ x y) "\n"))))
    ")\n)"))
 
 (defn code-adder
